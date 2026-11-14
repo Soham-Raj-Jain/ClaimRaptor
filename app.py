@@ -593,6 +593,10 @@ def run_live_duel(
     #
     # Once parsing finishes, Drex and Qwen are launched
     # simultaneously so neither gets an ordering advantage.
+    #
+    # Each model is resolved independently:
+    # one model/API failure must not lose the other
+    # model's result or the whole document.
 
     with ThreadPoolExecutor(
         max_workers=2
@@ -612,18 +616,47 @@ def run_live_duel(
             )
         )
 
-        drex = (
-            drex_future.result()
+        drex, drex_error = (
+            resolve_model_future(
+                drex_future
+            )
         )
 
-        qwen = (
-            qwen_future.result()
+        qwen, qwen_error = (
+            resolve_model_future(
+                qwen_future
+            )
         )
 
     return (
         drex,
         qwen,
+        drex_error,
+        qwen_error,
     )
+
+
+# ============================================================
+# SAFE FUTURE RESOLUTION
+# ============================================================
+
+def resolve_model_future(
+    future,
+):
+
+    try:
+
+        return (
+            future.result(),
+            None,
+        )
+
+    except Exception as exc:
+
+        return (
+            None,
+            exc,
+        )
 
 
 # ============================================================
@@ -640,38 +673,56 @@ def analyze_pdf(
         )
     )
 
-    drex, qwen = (
+    drex, qwen, drex_error, qwen_error = (
         run_live_duel(
             ndi["markdown"]
         )
     )
 
-    agreement = (
-        drex["decision"]
-        == qwen["decision"]
+    both_succeeded = (
+        drex is not None
+        and qwen is not None
     )
 
-    if drex["latency_ms"] > 0:
+    # Agreement and ratios are only meaningful
+    # when BOTH models returned a decision.
 
-        latency_ratio = (
-            qwen["latency_ms"]
-            / drex["latency_ms"]
+    if both_succeeded:
+
+        agreement = (
+            drex["decision"]
+            == qwen["decision"]
         )
+
+        if drex["latency_ms"] > 0:
+
+            latency_ratio = (
+                qwen["latency_ms"]
+                / drex["latency_ms"]
+            )
+
+        else:
+
+            latency_ratio = 0
+
+        if drex["cost_usd"] > 0:
+
+            cost_ratio = (
+                qwen["cost_usd"]
+                / drex["cost_usd"]
+            )
+
+        else:
+
+            cost_ratio = 0
 
     else:
 
-        latency_ratio = 0
+        agreement = None
 
-    if drex["cost_usd"] > 0:
+        latency_ratio = None
 
-        cost_ratio = (
-            qwen["cost_usd"]
-            / drex["cost_usd"]
-        )
-
-    else:
-
-        cost_ratio = 0
+        cost_ratio = None
 
     return {
         "file_name": (
@@ -694,8 +745,16 @@ def analyze_pdf(
             drex
         ),
 
+        "drex_error": (
+            drex_error
+        ),
+
         "qwen": (
             qwen
+        ),
+
+        "qwen_error": (
+            qwen_error
         ),
 
         "agreement": (
@@ -751,36 +810,51 @@ def render_live_result(
             "### 🦖 Drex"
         )
 
-        render_action(
-            result[
-                "drex"
-            ][
-                "decision"
-            ]
-        )
+        if result["drex"] is not None:
 
-        st.metric(
-            "Model Latency",
-
-            (
-                f"{result['drex']['latency_ms']:.1f} ms"
-            ),
-        )
-
-        st.metric(
-            "Inference Cost",
-
-            (
-                f"${result['drex']['cost_usd']:.8f}"
-            ),
-        )
-
-        st.caption(
-            (
-                "Confidence: "
-                f"{result['drex']['confidence'] * 100:.2f}%"
+            render_action(
+                result[
+                    "drex"
+                ][
+                    "decision"
+                ]
             )
-        )
+
+            st.metric(
+                "Model Latency",
+
+                (
+                    f"{result['drex']['latency_ms']:.1f} ms"
+                ),
+            )
+
+            st.metric(
+                "Inference Cost",
+
+                (
+                    f"${result['drex']['cost_usd']:.8f}"
+                ),
+            )
+
+            st.caption(
+                (
+                    "Confidence: "
+                    f"{result['drex']['confidence'] * 100:.2f}%"
+                )
+            )
+
+        else:
+
+            st.error(
+                "❌ Drex FAILED — no decision returned."
+            )
+
+            st.caption(
+                (
+                    "Error: "
+                    f"{result['drex_error']}"
+                )
+            )
 
     # --------------------------------------------------------
     # QWEN
@@ -792,29 +866,44 @@ def render_live_result(
             "### 🤖 Qwen"
         )
 
-        render_action(
-            result[
-                "qwen"
-            ][
-                "decision"
-            ]
-        )
+        if result["qwen"] is not None:
 
-        st.metric(
-            "Model Latency",
+            render_action(
+                result[
+                    "qwen"
+                ][
+                    "decision"
+                ]
+            )
 
-            (
-                f"{result['qwen']['latency_ms']:.1f} ms"
-            ),
-        )
+            st.metric(
+                "Model Latency",
 
-        st.metric(
-            "Inference Cost",
+                (
+                    f"{result['qwen']['latency_ms']:.1f} ms"
+                ),
+            )
 
-            (
-                f"${result['qwen']['cost_usd']:.8f}"
-            ),
-        )
+            st.metric(
+                "Inference Cost",
+
+                (
+                    f"${result['qwen']['cost_usd']:.8f}"
+                ),
+            )
+
+        else:
+
+            st.error(
+                "❌ Qwen FAILED — no decision returned."
+            )
+
+            st.caption(
+                (
+                    "Error: "
+                    f"{result['qwen_error']}"
+                )
+            )
 
     # ========================================================
     # LIVE COMPARISON
@@ -824,124 +913,165 @@ def render_live_result(
         "#### Live Comparison"
     )
 
-    c1, c2, c3, c4 = (
-        st.columns(4)
-    )
+    # Agreement and ratios are only shown when
+    # BOTH models returned a decision.
 
-    with c1:
+    if (
+        result["drex"] is not None
+        and result["qwen"] is not None
+    ):
 
-        st.metric(
-            "Decision Agreement",
-
-            (
-                "YES"
-                if result["agreement"]
-                else "NO"
-            ),
+        c1, c2, c3, c4 = (
+            st.columns(4)
         )
 
-    with c2:
+        with c1:
 
-        st.metric(
-            "Latency Ratio",
+            st.metric(
+                "Decision Agreement",
 
-            (
-                f"{result['latency_ratio']:.2f}×"
-            ),
+                (
+                    "YES"
+                    if result["agreement"]
+                    else "NO"
+                ),
+            )
 
-            help=(
-                "Qwen latency divided "
-                "by Drex latency."
-            ),
+        with c2:
+
+            st.metric(
+                "Latency Ratio",
+
+                (
+                    f"{result['latency_ratio']:.2f}×"
+                ),
+
+                help=(
+                    "Qwen latency divided "
+                    "by Drex latency."
+                ),
+            )
+
+        with c3:
+
+            st.metric(
+                "Cost Ratio",
+
+                (
+                    f"{result['cost_ratio']:.2f}×"
+                ),
+
+                help=(
+                    "Qwen inference cost divided "
+                    "by Drex inference cost."
+                ),
+            )
+
+        with c4:
+
+            st.metric(
+                "NDI Parse",
+
+                (
+                    f"{result['ndi_latency_ms'] / 1000:.2f} s"
+                ),
+
+                help=(
+                    "Shared document-processing time. "
+                    "Not included in either model's latency."
+                ),
+            )
+
+    else:
+
+        c1, c2 = (
+            st.columns(2)
         )
 
-    with c3:
+        with c1:
 
-        st.metric(
-            "Cost Ratio",
+            st.metric(
+                "NDI Parse",
 
-            (
-                f"{result['cost_ratio']:.2f}×"
-            ),
+                (
+                    f"{result['ndi_latency_ms'] / 1000:.2f} s"
+                ),
 
-            help=(
-                "Qwen inference cost divided "
-                "by Drex inference cost."
-            ),
-        )
+                help=(
+                    "Shared document-processing time. "
+                    "Not included in either model's latency."
+                ),
+            )
 
-    with c4:
+        with c2:
 
-        st.metric(
-            "NDI Parse",
-
-            (
-                f"{result['ndi_latency_ms'] / 1000:.2f} s"
-            ),
-
-            help=(
-                "Shared document-processing time. "
-                "Not included in either model's latency."
-            ),
-        )
+            st.caption(
+                (
+                    "Agreement and ratio metrics "
+                    "are only shown when both models "
+                    "return a decision."
+                )
+            )
 
     # ========================================================
     # DREX PROBABILITIES
     # ========================================================
 
-    with st.expander(
-        "Drex decision probabilities"
-    ):
+    if result["drex"] is not None:
 
-        probabilities = (
-            result[
-                "drex"
-            ][
-                "probabilities"
-            ]
-        )
+        with st.expander(
+            "Drex decision probabilities"
+        ):
 
-        probability_df = (
-            pd.DataFrame({
-                "Action": [
-                    "APPROVE",
-                    "MANUAL REVIEW",
-                    "DENY",
-                ],
+            probabilities = (
+                result[
+                    "drex"
+                ][
+                    "probabilities"
+                ]
+            )
 
-                "Probability (%)": [
-                    (
-                        probabilities.get(
-                            "approve",
-                            0,
-                        )
-                        * 100
-                    ),
+            probability_df = (
+                pd.DataFrame({
+                    "Action": [
+                        "APPROVE",
+                        "MANUAL REVIEW",
+                        "DENY",
+                    ],
 
-                    (
-                        probabilities.get(
-                            "manual_review",
-                            0,
-                        )
-                        * 100
-                    ),
+                    "Probability (%)": [
+                        (
+                            probabilities.get(
+                                "approve",
+                                0,
+                            )
+                            * 100
+                        ),
 
-                    (
-                        probabilities.get(
-                            "deny",
-                            0,
-                        )
-                        * 100
-                    ),
-                ],
-            })
-        )
+                        (
+                            probabilities.get(
+                                "manual_review",
+                                0,
+                            )
+                            * 100
+                        ),
 
-        st.dataframe(
-            probability_df,
-            use_container_width=True,
-            hide_index=True,
-        )
+                        (
+                            probabilities.get(
+                                "deny",
+                                0,
+                            )
+                            * 100
+                        ),
+                    ],
+                })
+            )
+
+            st.dataframe(
+                probability_df,
+                use_container_width=True,
+                hide_index=True,
+            )
 
     # ========================================================
     # NDI MARKDOWN
@@ -972,41 +1102,45 @@ def render_live_result(
             ],
         )
 
-        st.write(
-            "**Drex input tokens:**",
-            result[
-                "drex"
-            ][
-                "input_tokens"
-            ],
-        )
+        if result["drex"] is not None:
 
-        st.write(
-            "**Drex output tokens:**",
-            result[
-                "drex"
-            ][
-                "output_tokens"
-            ],
-        )
+            st.write(
+                "**Drex input tokens:**",
+                result[
+                    "drex"
+                ][
+                    "input_tokens"
+                ],
+            )
 
-        st.write(
-            "**Qwen input tokens:**",
-            result[
-                "qwen"
-            ][
-                "input_tokens"
-            ],
-        )
+            st.write(
+                "**Drex output tokens:**",
+                result[
+                    "drex"
+                ][
+                    "output_tokens"
+                ],
+            )
 
-        st.write(
-            "**Qwen output tokens:**",
-            result[
-                "qwen"
-            ][
-                "output_tokens"
-            ],
-        )
+        if result["qwen"] is not None:
+
+            st.write(
+                "**Qwen input tokens:**",
+                result[
+                    "qwen"
+                ][
+                    "input_tokens"
+                ],
+            )
+
+            st.write(
+                "**Qwen output tokens:**",
+                result[
+                    "qwen"
+                ][
+                    "output_tokens"
+                ],
+            )
 
 
 # ============================================================
@@ -1235,11 +1369,25 @@ agreement, and cost — not accuracy**.
         "Live Session Summary"
     )
 
-    agreement_count = sum(
-        result[
-            "agreement"
-        ]
+    # ----------------------------------------------------------------
+    # Only documents where BOTH models returned a decision
+    # contribute to agreement counts.
+    #
+    # Latency / cost stats include every model result that
+    # succeeded, even if the other model failed.
+    # ----------------------------------------------------------------
+
+    both_results = [
+        result
         for result in all_results
+        if result["drex"] is not None
+        and result["qwen"] is not None
+    ]
+
+    agreement_count = sum(
+        1
+        for result in both_results
+        if result["agreement"]
     )
 
     drex_latencies = [
@@ -1249,6 +1397,7 @@ agreement, and cost — not accuracy**.
             "latency_ms"
         ]
         for result in all_results
+        if result["drex"] is not None
     ]
 
     qwen_latencies = [
@@ -1258,6 +1407,7 @@ agreement, and cost — not accuracy**.
             "latency_ms"
         ]
         for result in all_results
+        if result["qwen"] is not None
     ]
 
     drex_cost = sum(
@@ -1267,6 +1417,7 @@ agreement, and cost — not accuracy**.
             "cost_usd"
         ]
         for result in all_results
+        if result["drex"] is not None
     )
 
     qwen_cost = sum(
@@ -1276,18 +1427,27 @@ agreement, and cost — not accuracy**.
             "cost_usd"
         ]
         for result in all_results
+        if result["qwen"] is not None
     )
 
-    median_drex = float(
-        pd.Series(
-            drex_latencies
-        ).median()
+    median_drex = (
+        float(
+            pd.Series(
+                drex_latencies
+            ).median()
+        )
+        if drex_latencies
+        else None
     )
 
-    median_qwen = float(
-        pd.Series(
-            qwen_latencies
-        ).median()
+    median_qwen = (
+        float(
+            pd.Series(
+                qwen_latencies
+            ).median()
+        )
+        if qwen_latencies
+        else None
     )
 
     # ========================================================
@@ -1315,7 +1475,12 @@ agreement, and cost — not accuracy**.
 
             (
                 f"{agreement_count}/"
-                f"{len(all_results)}"
+                f"{len(both_results)}"
+            ),
+
+            help=(
+                "Counted only for documents where "
+                "both models returned a decision."
             ),
         )
 
@@ -1326,6 +1491,8 @@ agreement, and cost — not accuracy**.
 
             (
                 f"{median_drex:.0f} ms"
+                if median_drex is not None
+                else "n/a"
             ),
         )
 
@@ -1336,10 +1503,12 @@ agreement, and cost — not accuracy**.
 
             (
                 f"{median_qwen:.0f} ms"
+                if median_qwen is not None
+                else "n/a"
             ),
         )
 
-    if drex_cost > 0:
+    if drex_cost > 0 and qwen_cost > 0:
 
         live_cost_ratio = (
             qwen_cost
@@ -1407,6 +1576,10 @@ def render_live_benchmark():
 
     for result in results:
 
+        drex_result = result["drex"]
+
+        qwen_result = result["qwen"]
+
         rows.append({
             "Document": (
                 result[
@@ -1416,77 +1589,58 @@ def render_live_benchmark():
 
             "Drex Decision": (
                 action_display(
-                    result[
-                        "drex"
-                    ][
-                        "decision"
-                    ]
+                    drex_result["decision"]
                 )
+                if drex_result is not None
+                else "FAILED"
             ),
 
             "Qwen Decision": (
                 action_display(
-                    result[
-                        "qwen"
-                    ][
-                        "decision"
-                    ]
+                    qwen_result["decision"]
                 )
+                if qwen_result is not None
+                else "FAILED"
             ),
 
             "Agreement": (
-                "Yes"
-                if result[
-                    "agreement"
-                ]
-                else "No"
+                "n/a"
+                if result["agreement"] is None
+                else (
+                    "Yes"
+                    if result["agreement"]
+                    else "No"
+                )
             ),
 
             "Drex Latency (ms)": (
-                round(
-                    result[
-                        "drex"
-                    ][
-                        "latency_ms"
-                    ],
-                    1,
-                )
+                f"{drex_result['latency_ms']:.1f}"
+                if drex_result is not None
+                else "n/a"
             ),
 
             "Qwen Latency (ms)": (
-                round(
-                    result[
-                        "qwen"
-                    ][
-                        "latency_ms"
-                    ],
-                    1,
-                )
+                f"{qwen_result['latency_ms']:.1f}"
+                if qwen_result is not None
+                else "n/a"
             ),
 
             "Latency Ratio": (
-                round(
-                    result[
-                        "latency_ratio"
-                    ],
-                    2,
-                )
+                f"{result['latency_ratio']:.2f}"
+                if result["latency_ratio"] is not None
+                else "n/a"
             ),
 
             "Drex Cost": (
-                result[
-                    "drex"
-                ][
-                    "cost_usd"
-                ]
+                f"{drex_result['cost_usd']:.8f}"
+                if drex_result is not None
+                else "n/a"
             ),
 
             "Qwen Cost": (
-                result[
-                    "qwen"
-                ][
-                    "cost_usd"
-                ]
+                f"{qwen_result['cost_usd']:.8f}"
+                if qwen_result is not None
+                else "n/a"
             ),
         })
 
