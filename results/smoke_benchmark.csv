@@ -1,0 +1,31 @@
+repeat,claim_id,expected,model,decision,correct,latency_ms,model_latency_ms,input_tokens,output_tokens
+1,CLM-001,approve,Drex,approve,True,301.2214000336826,131.3,290,115
+1,CLM-001,approve,DeepInfra Qwen,approve,True,497.1605999744497,,268,2
+1,CLM-002,deny,Drex,deny,True,242.58069996722043,153.1,295,118
+1,CLM-002,deny,DeepInfra Qwen,deny,True,543.5903000179678,,273,2
+1,CLM-003,manual_review,Drex,manual_review,True,184.07280003884807,106.5,294,119
+1,CLM-003,manual_review,DeepInfra Qwen,manual_review,True,671.0444999625906,,272,3
+2,CLM-001,approve,Drex,approve,True,201.0935999569483,115.7,290,115
+2,CLM-001,approve,DeepInfra Qwen,approve,True,209.91619996493682,,268,2
+2,CLM-002,deny,Drex,deny,True,241.25260004075244,163.1,295,118
+2,CLM-002,deny,DeepInfra Qwen,deny,True,194.40619996748865,,273,2
+2,CLM-003,manual_review,Drex,manual_review,True,204.2272999533452,130.5,294,119
+2,CLM-003,manual_review,DeepInfra Qwen,manual_review,True,218.13980001024902,,272,3
+3,CLM-001,approve,Drex,approve,True,238.5144000290893,131.7,290,115
+3,CLM-001,approve,DeepInfra Qwen,approve,True,339.49099999153987,,268,2
+3,CLM-002,deny,Drex,deny,True,242.56260000402108,151.1,295,118
+3,CLM-002,deny,DeepInfra Qwen,deny,True,229.74859998794273,,273,2
+3,CLM-003,manual_review,Drex,manual_review,True,335.39960003690794,241.6,294,119
+3,CLM-003,manual_review,DeepInfra Qwen,manual_review,True,210.73639998212457,,272,3
+4,CLM-001,approve,Drex,approve,True,239.81920001097023,162.8,290,115
+4,CLM-001,approve,DeepInfra Qwen,approve,True,183.14099998679012,,268,2
+4,CLM-002,deny,Drex,deny,True,210.3806000086479,118.9,295,118
+4,CLM-002,deny,DeepInfra Qwen,deny,True,221.40480001689866,,273,2
+4,CLM-003,manual_review,Drex,manual_review,True,270.37129999371246,169.1,294,119
+4,CLM-003,manual_review,DeepInfra Qwen,manual_review,True,543.5624999809079,,272,3
+5,CLM-001,approve,Drex,approve,True,246.22490000911057,167.0,290,115
+5,CLM-001,approve,DeepInfra Qwen,approve,True,459.5431999769062,,268,2
+5,CLM-002,deny,Drex,deny,True,435.94799999846146,360.7,295,118
+5,CLM-002,deny,DeepInfra Qwen,manual_review,False,268.5505999834277,,273,3
+5,CLM-003,manual_review,Drex,manual_review,True,233.54960000142455,145.8,294,119
+5,CLM-003,manual_review,DeepInfra Qwen,manual_review,True,202.22259999718517,,272,3
