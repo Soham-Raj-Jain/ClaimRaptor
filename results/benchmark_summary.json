@@ -1,0 +1,17 @@
+{
+  "unique_claims": 30,
+  "trials": 3,
+  "drex_accuracy": 100.0,
+  "qwen_accuracy": 96.66666666666667,
+  "drex_median_latency_ms": 225.4182500182651,
+  "qwen_median_latency_ms": 282.7227500092704,
+  "drex_p95_latency_ms": 324.3019550165627,
+  "qwen_p95_latency_ms": 1239.4482150149988,
+  "median_latency_ratio": 1.2542141108200513,
+  "p95_latency_ratio": 3.8218956002028968,
+  "drex_cost_per_decision": 1.0537e-05,
+  "qwen_cost_per_decision": 5.470166666666667e-05,
+  "qwen_to_drex_cost_ratio": 5.191389073423809,
+  "drex_consistency": 100.0,
+  "qwen_consistency": 96.66666666666667
+}

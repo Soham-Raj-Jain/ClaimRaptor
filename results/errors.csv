@@ -1,0 +1,2 @@
+claim_id,model,expected,decision,reason
+BENCH-004,DeepInfra Qwen,approve,manual_review,Incident occurred on final active policy day.

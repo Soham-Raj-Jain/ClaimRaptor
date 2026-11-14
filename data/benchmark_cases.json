@@ -1,0 +1,752 @@
+[
+  {
+    "claim_id": "BENCH-001",
+    "expected_action": "approve",
+    "reason": "Active policy, covered collision, complete evidence.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-001",
+      "policy_number": "POL-BENCH-001",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "March 15, 2026",
+      "damage_type": "collision",
+      "repair_cost": 4200,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-002",
+    "expected_action": "approve",
+    "reason": "Active policy and well-documented rear-end collision.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-002",
+      "policy_number": "POL-BENCH-002",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "July 8, 2026",
+      "damage_type": "rear-end collision",
+      "repair_cost": 6500,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-003",
+    "expected_action": "approve",
+    "reason": "Incident occurred one day after policy started with complete evidence.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-003",
+      "policy_number": "POL-BENCH-003",
+      "policy_start_date": "April 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "April 2, 2026",
+      "damage_type": "collision",
+      "repair_cost": 2800,
+      "collision_deductible": 500,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-004",
+    "expected_action": "approve",
+    "reason": "Incident occurred on final active policy day.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-004",
+      "policy_number": "POL-BENCH-004",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "September 30, 2026",
+      "incident_date": "September 30, 2026",
+      "damage_type": "collision",
+      "repair_cost": 5100,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-005",
+    "expected_action": "approve",
+    "reason": "Low-cost covered collision with supporting evidence.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-005",
+      "policy_number": "POL-BENCH-005",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "February 12, 2026",
+      "damage_type": "minor parking collision",
+      "repair_cost": 1800,
+      "collision_deductible": 500,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-006",
+    "expected_action": "approve",
+    "reason": "High repair cost but otherwise clearly covered.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-006",
+      "policy_number": "POL-BENCH-006",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "August 21, 2026",
+      "damage_type": "multi-vehicle collision",
+      "repair_cost": 18000,
+      "collision_deductible": 1500,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-007",
+    "expected_action": "approve",
+    "reason": "Covered side-impact collision with complete documentation.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-007",
+      "policy_number": "POL-BENCH-007",
+      "policy_start_date": "March 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "June 4, 2026",
+      "damage_type": "side-impact collision",
+      "repair_cost": 7300,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-008",
+    "expected_action": "approve",
+    "reason": "Covered collision with photos and police documentation.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-008",
+      "policy_number": "POL-BENCH-008",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "November 30, 2026",
+      "incident_date": "November 10, 2026",
+      "damage_type": "front bumper collision",
+      "repair_cost": 3600,
+      "collision_deductible": 750,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-009",
+    "expected_action": "approve",
+    "reason": "Active policy and clear accidental collision.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-009",
+      "policy_number": "POL-BENCH-009",
+      "policy_start_date": "February 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "May 14, 2026",
+      "damage_type": "accidental collision",
+      "repair_cost": 9200,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-010",
+    "expected_action": "approve",
+    "reason": "Complete evidence and no inconsistencies.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-010",
+      "policy_number": "POL-BENCH-010",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "October 20, 2026",
+      "damage_type": "collision",
+      "repair_cost": 5400,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-011",
+    "expected_action": "deny",
+    "reason": "Incident occurred after policy expiration.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-011",
+      "policy_number": "POL-BENCH-011",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "June 30, 2026",
+      "incident_date": "October 10, 2026",
+      "damage_type": "collision",
+      "repair_cost": 4000,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-012",
+    "expected_action": "deny",
+    "reason": "Incident occurred before policy began.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-012",
+      "policy_number": "POL-BENCH-012",
+      "policy_start_date": "June 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "May 20, 2026",
+      "damage_type": "collision",
+      "repair_cost": 3000,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-013",
+    "expected_action": "deny",
+    "reason": "Mechanical failure is excluded from collision coverage.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-013",
+      "policy_number": "POL-BENCH-013",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "August 5, 2026",
+      "damage_type": "normal mechanical failure",
+      "repair_cost": 6200,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-014",
+    "expected_action": "deny",
+    "reason": "Normal wear and tear is excluded.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-014",
+      "policy_number": "POL-BENCH-014",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "April 11, 2026",
+      "damage_type": "normal wear and tear",
+      "repair_cost": 2200,
+      "collision_deductible": 500,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-015",
+    "expected_action": "deny",
+    "reason": "Intentional damage is excluded.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-015",
+      "policy_number": "POL-BENCH-015",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "September 7, 2026",
+      "damage_type": "intentional damage caused by policyholder",
+      "repair_cost": 7500,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-016",
+    "expected_action": "deny",
+    "reason": "Claim occurred months after policy expiration.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-016",
+      "policy_number": "POL-BENCH-016",
+      "policy_start_date": "January 1, 2025",
+      "policy_expiration_date": "December 31, 2025",
+      "incident_date": "July 5, 2026",
+      "damage_type": "collision",
+      "repair_cost": 5700,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-017",
+    "expected_action": "deny",
+    "reason": "Claim clearly identifies uncovered engine breakdown.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-017",
+      "policy_number": "POL-BENCH-017",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "June 19, 2026",
+      "damage_type": "engine breakdown from mechanical failure",
+      "repair_cost": 8400,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-018",
+    "expected_action": "deny",
+    "reason": "Policy expired the day before the incident.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-018",
+      "policy_number": "POL-BENCH-018",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "September 14, 2026",
+      "incident_date": "September 15, 2026",
+      "damage_type": "collision",
+      "repair_cost": 4900,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-019",
+    "expected_action": "deny",
+    "reason": "Damage described as routine deterioration rather than collision.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-019",
+      "policy_number": "POL-BENCH-019",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "March 9, 2026",
+      "damage_type": "routine deterioration",
+      "repair_cost": 2600,
+      "collision_deductible": 500,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-020",
+    "expected_action": "deny",
+    "reason": "Intentional vehicle damage is explicitly excluded.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-020",
+      "policy_number": "POL-BENCH-020",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "November 2, 2026",
+      "damage_type": "intentional self-inflicted vehicle damage",
+      "repair_cost": 11000,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-021",
+    "expected_action": "manual_review",
+    "reason": "Cause of damage is unknown and supporting evidence is missing.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-021",
+      "policy_number": "POL-BENCH-021",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "June 10, 2026",
+      "damage_type": "unknown bumper damage",
+      "repair_cost": 4100,
+      "collision_deductible": 1000,
+      "police_report_submitted": false,
+      "photos_submitted": false,
+      "conflicting_information": true
+    }
+  },
+  {
+    "claim_id": "BENCH-022",
+    "expected_action": "manual_review",
+    "reason": "Photos are missing and claim contains conflicting information.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-022",
+      "policy_number": "POL-BENCH-022",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "July 22, 2026",
+      "damage_type": "possible collision",
+      "repair_cost": 5300,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": false,
+      "conflicting_information": true
+    }
+  },
+  {
+    "claim_id": "BENCH-023",
+    "expected_action": "manual_review",
+    "reason": "Claim has incomplete documentation and uncertain cause.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-023",
+      "policy_number": "POL-BENCH-023",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "August 2, 2026",
+      "damage_type": "uncertain vehicle damage",
+      "repair_cost": 6900,
+      "collision_deductible": 1000,
+      "police_report_submitted": false,
+      "photos_submitted": true,
+      "conflicting_information": true
+    }
+  },
+  {
+    "claim_id": "BENCH-024",
+    "expected_action": "manual_review",
+    "reason": "Conflicting information requires human verification.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-024",
+      "policy_number": "POL-BENCH-024",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "September 4, 2026",
+      "damage_type": "collision",
+      "repair_cost": 8300,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": true
+    }
+  },
+  {
+    "claim_id": "BENCH-025",
+    "expected_action": "manual_review",
+    "reason": "No police report or photos are available.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-025",
+      "policy_number": "POL-BENCH-025",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "October 3, 2026",
+      "damage_type": "reported collision",
+      "repair_cost": 3700,
+      "collision_deductible": 500,
+      "police_report_submitted": false,
+      "photos_submitted": false,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-026",
+    "expected_action": "manual_review",
+    "reason": "Evidence conflicts even though the policy is active.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-026",
+      "policy_number": "POL-BENCH-026",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "May 18, 2026",
+      "damage_type": "collision",
+      "repair_cost": 12000,
+      "collision_deductible": 1500,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": true
+    }
+  },
+  {
+    "claim_id": "BENCH-027",
+    "expected_action": "manual_review",
+    "reason": "Damage cause cannot be established from submitted evidence.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-027",
+      "policy_number": "POL-BENCH-027",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "March 27, 2026",
+      "damage_type": "undetermined damage",
+      "repair_cost": 2400,
+      "collision_deductible": 500,
+      "police_report_submitted": false,
+      "photos_submitted": true,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-028",
+    "expected_action": "manual_review",
+    "reason": "Only a repair estimate exists and incident evidence is incomplete.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-028",
+      "policy_number": "POL-BENCH-028",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "February 8, 2026",
+      "damage_type": "possible parking collision",
+      "repair_cost": 4600,
+      "collision_deductible": 1000,
+      "police_report_submitted": false,
+      "photos_submitted": false,
+      "conflicting_information": false
+    }
+  },
+  {
+    "claim_id": "BENCH-029",
+    "expected_action": "manual_review",
+    "reason": "Reported collision details materially conflict.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-029",
+      "policy_number": "POL-BENCH-029",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "November 11, 2026",
+      "damage_type": "collision with conflicting accounts",
+      "repair_cost": 9800,
+      "collision_deductible": 1000,
+      "police_report_submitted": true,
+      "photos_submitted": true,
+      "conflicting_information": true
+    }
+  },
+  {
+    "claim_id": "BENCH-030",
+    "expected_action": "manual_review",
+    "reason": "Claim is potentially covered but evidence is insufficient.",
+    "data": {
+      "policy_rules": {
+        "collision_covered": true,
+        "coverage_requires_active_policy": true,
+        "mechanical_failure_excluded": true,
+        "wear_and_tear_excluded": true,
+        "intentional_damage_excluded": true
+      },
+      "claim_number": "BENCH-030",
+      "policy_number": "POL-BENCH-030",
+      "policy_start_date": "January 1, 2026",
+      "policy_expiration_date": "December 31, 2026",
+      "incident_date": "April 30, 2026",
+      "damage_type": "possible collision",
+      "repair_cost": 5800,
+      "collision_deductible": 1000,
+      "police_report_submitted": false,
+      "photos_submitted": false,
+      "conflicting_information": true
+    }
+  }
+]

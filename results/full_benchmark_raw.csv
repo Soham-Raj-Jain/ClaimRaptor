@@ -1,0 +1,181 @@
+trial,claim_id,expected,reason,model,decision,correct,latency_ms,internal_latency_ms,input_tokens,output_tokens,cost_usd
+1,BENCH-020,deny,Intentional vehicle damage is explicitly excluded.,Drex,deny,True,209.0821999590844,125.8,357,118,1.0709999999999999e-05
+1,BENCH-020,deny,Intentional vehicle damage is explicitly excluded.,DeepInfra Qwen,deny,True,286.098700016737,,341,2,5.489999999999999e-05
+1,BENCH-015,deny,Intentional damage is excluded.,DeepInfra Qwen,deny,True,283.1785000162199,,340,2,5.475e-05
+1,BENCH-015,deny,Intentional damage is excluded.,Drex,deny,True,190.37599995499477,108.6,356,118,1.068e-05
+1,BENCH-011,deny,Incident occurred after policy expiration.,DeepInfra Qwen,deny,True,285.215700045228,,334,2,5.3849999999999994e-05
+1,BENCH-011,deny,Incident occurred after policy expiration.,Drex,deny,True,204.9925999599509,119.2,350,120,1.05e-05
+1,BENCH-027,manual_review,Damage cause cannot be established from submitted evidence.,Drex,manual_review,True,267.6113999914378,194.5,351,117,1.053e-05
+1,BENCH-027,manual_review,Damage cause cannot be established from submitted evidence.,DeepInfra Qwen,manual_review,True,902.9518999741413,,335,3,5.5875e-05
+1,BENCH-023,manual_review,Claim has incomplete documentation and uncertain cause.,Drex,manual_review,True,233.01340005127713,124.4,352,120,1.0559999999999999e-05
+1,BENCH-023,manual_review,Claim has incomplete documentation and uncertain cause.,DeepInfra Qwen,manual_review,True,370.0912999920547,,336,3,5.6025e-05
+1,BENCH-007,approve,Covered side-impact collision with complete documentation.,Drex,approve,True,335.18870000261813,230.5,352,115,1.0559999999999999e-05
+1,BENCH-007,approve,Covered side-impact collision with complete documentation.,DeepInfra Qwen,approve,True,1960.188199998811,,336,2,5.415e-05
+1,BENCH-006,approve,High repair cost but otherwise clearly covered.,DeepInfra Qwen,approve,True,334.77910002693534,,338,2,5.4449999999999995e-05
+1,BENCH-006,approve,High repair cost but otherwise clearly covered.,Drex,approve,True,268.85370002128184,183.2,354,114,1.062e-05
+1,BENCH-013,deny,Mechanical failure is excluded from collision coverage.,DeepInfra Qwen,deny,True,1064.5100999972783,,335,2,5.4e-05
+1,BENCH-013,deny,Mechanical failure is excluded from collision coverage.,Drex,deny,True,267.78390002436936,119.3,351,119,1.053e-05
+1,BENCH-012,deny,Incident occurred before policy began.,Drex,deny,True,203.04589997977018,118.1,350,119,1.05e-05
+1,BENCH-012,deny,Incident occurred before policy began.,DeepInfra Qwen,deny,True,668.4409000445157,,334,2,5.3849999999999994e-05
+1,BENCH-016,deny,Claim occurred months after policy expiration.,DeepInfra Qwen,deny,True,198.28099996084347,,333,2,5.3700000000000004e-05
+1,BENCH-016,deny,Claim occurred months after policy expiration.,Drex,deny,True,200.97260002512485,119.6,349,118,1.047e-05
+1,BENCH-010,approve,Complete evidence and no inconsistencies.,DeepInfra Qwen,approve,True,243.74609999358654,,334,2,5.3849999999999994e-05
+1,BENCH-010,approve,Complete evidence and no inconsistencies.,Drex,approve,True,264.12909995997325,178.3,350,116,1.05e-05
+1,BENCH-026,manual_review,Evidence conflicts even though the policy is active.,Drex,manual_review,True,218.36110000731423,128.4,351,120,1.053e-05
+1,BENCH-026,manual_review,Evidence conflicts even though the policy is active.,DeepInfra Qwen,manual_review,True,314.10760001745075,,335,3,5.5875e-05
+1,BENCH-030,manual_review,Claim is potentially covered but evidence is insufficient.,DeepInfra Qwen,manual_review,True,459.0667000156827,,335,3,5.5875e-05
+1,BENCH-030,manual_review,Claim is potentially covered but evidence is insufficient.,Drex,manual_review,True,274.0478999912739,191.7,351,119,1.053e-05
+1,BENCH-022,manual_review,Photos are missing and claim contains conflicting information.,Drex,manual_review,True,297.2442000173032,223.3,351,121,1.053e-05
+1,BENCH-022,manual_review,Photos are missing and claim contains conflicting information.,DeepInfra Qwen,manual_review,True,303.4484999952838,,335,3,5.5875e-05
+1,BENCH-017,deny,Claim clearly identifies uncovered engine breakdown.,Drex,deny,True,320.29349997173995,225.4,354,119,1.062e-05
+1,BENCH-017,deny,Claim clearly identifies uncovered engine breakdown.,DeepInfra Qwen,deny,True,250.78620004933327,,338,2,5.4449999999999995e-05
+1,BENCH-028,manual_review,Only a repair estimate exists and incident evidence is incomplete.,Drex,manual_review,True,203.20310001261532,120.7,351,116,1.053e-05
+1,BENCH-028,manual_review,Only a repair estimate exists and incident evidence is incomplete.,DeepInfra Qwen,manual_review,True,240.6224000151269,,335,3,5.5875e-05
+1,BENCH-002,approve,Active policy and well-documented rear-end collision.,DeepInfra Qwen,approve,True,227.5816000183113,,335,2,5.4e-05
+1,BENCH-002,approve,Active policy and well-documented rear-end collision.,Drex,approve,True,232.05160000361502,130.1,351,117,1.053e-05
+1,BENCH-014,deny,Normal wear and tear is excluded.,Drex,deny,True,289.56989996368065,187.7,352,118,1.0559999999999999e-05
+1,BENCH-014,deny,Normal wear and tear is excluded.,DeepInfra Qwen,deny,True,310.7279999530874,,336,2,5.415e-05
+1,BENCH-019,deny,Damage described as routine deterioration rather than collision.,DeepInfra Qwen,deny,True,230.1741000264883,,333,2,5.3700000000000004e-05
+1,BENCH-019,deny,Damage described as routine deterioration rather than collision.,Drex,deny,True,218.3733000420034,129.5,349,116,1.047e-05
+1,BENCH-003,approve,Incident occurred one day after policy started with complete evidence.,Drex,approve,True,214.93160002864897,123.9,348,117,1.044e-05
+1,BENCH-003,approve,Incident occurred one day after policy started with complete evidence.,DeepInfra Qwen,approve,True,270.70970000931993,,332,2,5.355e-05
+1,BENCH-018,deny,Policy expired the day before the incident.,DeepInfra Qwen,deny,True,199.15739999851212,,334,2,5.3849999999999994e-05
+1,BENCH-018,deny,Policy expired the day before the incident.,Drex,deny,True,258.54160002199933,184.1,350,118,1.05e-05
+1,BENCH-029,manual_review,Reported collision details materially conflict.,Drex,manual_review,True,181.95459997514263,102.6,353,121,1.059e-05
+1,BENCH-029,manual_review,Reported collision details materially conflict.,DeepInfra Qwen,manual_review,True,313.45740001415834,,337,3,5.6175000000000003e-05
+1,BENCH-005,approve,Low-cost covered collision with supporting evidence.,Drex,approve,True,217.80839998973534,127.3,351,117,1.053e-05
+1,BENCH-005,approve,Low-cost covered collision with supporting evidence.,DeepInfra Qwen,approve,True,300.87660002755,,335,2,5.4e-05
+1,BENCH-025,manual_review,No police report or photos are available.,DeepInfra Qwen,manual_review,True,223.77520002191886,,333,3,5.5575e-05
+1,BENCH-025,manual_review,No police report or photos are available.,Drex,manual_review,True,224.27690000040457,135.2,349,116,1.047e-05
+1,BENCH-008,approve,Covered collision with photos and police documentation.,DeepInfra Qwen,approve,True,703.994000039529,,335,2,5.4e-05
+1,BENCH-008,approve,Covered collision with photos and police documentation.,Drex,approve,True,226.1276000062935,134.1,351,116,1.053e-05
+1,BENCH-009,approve,Active policy and clear accidental collision.,DeepInfra Qwen,approve,True,270.2786000445485,,336,2,5.415e-05
+1,BENCH-009,approve,Active policy and clear accidental collision.,Drex,approve,True,254.13509999634698,168.8,352,116,1.0559999999999999e-05
+1,BENCH-024,manual_review,Conflicting information requires human verification.,DeepInfra Qwen,manual_review,True,219.89659999962896,,333,3,5.5575e-05
+1,BENCH-024,manual_review,Conflicting information requires human verification.,Drex,manual_review,True,222.48120000585914,137.1,349,118,1.047e-05
+1,BENCH-001,approve,"Active policy, covered collision, complete evidence.",Drex,approve,True,241.63309996947646,152.2,350,117,1.05e-05
+1,BENCH-001,approve,"Active policy, covered collision, complete evidence.",DeepInfra Qwen,approve,True,259.2804000014439,,334,2,5.3849999999999994e-05
+1,BENCH-004,approve,Incident occurred on final active policy day.,DeepInfra Qwen,manual_review,False,370.19540002802387,,334,3,5.5725e-05
+1,BENCH-004,approve,Incident occurred on final active policy day.,Drex,approve,True,317.28850002400577,179.2,350,114,1.05e-05
+1,BENCH-021,manual_review,Cause of damage is unknown and supporting evidence is missing.,DeepInfra Qwen,manual_review,True,302.5254000094719,,336,3,5.6025e-05
+1,BENCH-021,manual_review,Cause of damage is unknown and supporting evidence is missing.,Drex,manual_review,True,370.60740002198145,291.2,352,120,1.0559999999999999e-05
+2,BENCH-010,approve,Complete evidence and no inconsistencies.,Drex,approve,True,247.74650001199916,149.7,350,116,1.05e-05
+2,BENCH-010,approve,Complete evidence and no inconsistencies.,DeepInfra Qwen,approve,True,298.9399000070989,,334,2,5.3849999999999994e-05
+2,BENCH-026,manual_review,Evidence conflicts even though the policy is active.,DeepInfra Qwen,manual_review,True,296.03169998154044,,335,3,5.5875e-05
+2,BENCH-026,manual_review,Evidence conflicts even though the policy is active.,Drex,manual_review,True,262.3338000266813,137.9,351,120,1.053e-05
+2,BENCH-025,manual_review,No police report or photos are available.,DeepInfra Qwen,manual_review,True,316.8592000147328,,333,3,5.5575e-05
+2,BENCH-025,manual_review,No police report or photos are available.,Drex,manual_review,True,375.4081999650225,133.0,349,116,1.047e-05
+2,BENCH-014,deny,Normal wear and tear is excluded.,Drex,deny,True,239.93310000514612,168.8,352,118,1.0559999999999999e-05
+2,BENCH-014,deny,Normal wear and tear is excluded.,DeepInfra Qwen,deny,True,282.26700000232086,,336,2,5.415e-05
+2,BENCH-002,approve,Active policy and well-documented rear-end collision.,DeepInfra Qwen,approve,True,280.7003000052646,,335,2,5.4e-05
+2,BENCH-002,approve,Active policy and well-documented rear-end collision.,Drex,approve,True,205.97170002292842,126.1,351,117,1.053e-05
+2,BENCH-001,approve,"Active policy, covered collision, complete evidence.",Drex,approve,True,203.84179998654872,124.8,350,117,1.05e-05
+2,BENCH-001,approve,"Active policy, covered collision, complete evidence.",DeepInfra Qwen,approve,True,606.7909999983385,,334,2,5.3849999999999994e-05
+2,BENCH-030,manual_review,Claim is potentially covered but evidence is insufficient.,Drex,manual_review,True,200.24480001302436,118.6,351,119,1.053e-05
+2,BENCH-030,manual_review,Claim is potentially covered but evidence is insufficient.,DeepInfra Qwen,manual_review,True,300.73720001382753,,335,3,5.5875e-05
+2,BENCH-017,deny,Claim clearly identifies uncovered engine breakdown.,Drex,deny,True,313.53220000164583,184.8,354,119,1.062e-05
+2,BENCH-017,deny,Claim clearly identifies uncovered engine breakdown.,DeepInfra Qwen,deny,True,559.5375000266358,,338,2,5.4449999999999995e-05
+2,BENCH-029,manual_review,Reported collision details materially conflict.,DeepInfra Qwen,manual_review,True,273.96600000793114,,337,3,5.6175000000000003e-05
+2,BENCH-029,manual_review,Reported collision details materially conflict.,Drex,manual_review,True,175.25949998525903,101.9,353,121,1.059e-05
+2,BENCH-019,deny,Damage described as routine deterioration rather than collision.,Drex,deny,True,190.25829999009147,110.9,349,116,1.047e-05
+2,BENCH-019,deny,Damage described as routine deterioration rather than collision.,DeepInfra Qwen,deny,True,1797.66219999874,,333,2,5.3700000000000004e-05
+2,BENCH-011,deny,Incident occurred after policy expiration.,DeepInfra Qwen,deny,True,292.232200037688,,334,2,5.3849999999999994e-05
+2,BENCH-011,deny,Incident occurred after policy expiration.,Drex,deny,True,327.5816000532359,199.3,350,120,1.05e-05
+2,BENCH-005,approve,Low-cost covered collision with supporting evidence.,DeepInfra Qwen,approve,True,274.44090001517907,,335,2,5.4e-05
+2,BENCH-005,approve,Low-cost covered collision with supporting evidence.,Drex,approve,True,244.70420001307502,128.3,351,117,1.053e-05
+2,BENCH-020,deny,Intentional vehicle damage is explicitly excluded.,Drex,deny,True,264.08579997951165,180.1,357,118,1.0709999999999999e-05
+2,BENCH-020,deny,Intentional vehicle damage is explicitly excluded.,DeepInfra Qwen,deny,True,333.1476000021212,,341,2,5.489999999999999e-05
+2,BENCH-016,deny,Claim occurred months after policy expiration.,Drex,deny,True,214.52229999704286,125.0,349,118,1.047e-05
+2,BENCH-016,deny,Claim occurred months after policy expiration.,DeepInfra Qwen,deny,True,519.3839999847114,,333,2,5.3700000000000004e-05
+2,BENCH-018,deny,Policy expired the day before the incident.,Drex,deny,True,236.72520002583042,126.4,350,118,1.05e-05
+2,BENCH-018,deny,Policy expired the day before the incident.,DeepInfra Qwen,deny,True,441.2460000021383,,334,2,5.3849999999999994e-05
+2,BENCH-008,approve,Covered collision with photos and police documentation.,Drex,approve,True,249.8337000142783,121.8,351,116,1.053e-05
+2,BENCH-008,approve,Covered collision with photos and police documentation.,DeepInfra Qwen,approve,True,365.53979996824637,,335,2,5.4e-05
+2,BENCH-023,manual_review,Claim has incomplete documentation and uncertain cause.,DeepInfra Qwen,manual_review,True,357.2177999885753,,336,3,5.6025e-05
+2,BENCH-023,manual_review,Claim has incomplete documentation and uncertain cause.,Drex,manual_review,True,207.70769997034222,120.6,352,120,1.0559999999999999e-05
+2,BENCH-003,approve,Incident occurred one day after policy started with complete evidence.,DeepInfra Qwen,approve,True,369.07050001900643,,332,2,5.355e-05
+2,BENCH-003,approve,Incident occurred one day after policy started with complete evidence.,Drex,approve,True,213.7495999922976,125.6,348,117,1.044e-05
+2,BENCH-027,manual_review,Damage cause cannot be established from submitted evidence.,Drex,manual_review,True,206.99500001501292,120.4,351,117,1.053e-05
+2,BENCH-027,manual_review,Damage cause cannot be established from submitted evidence.,DeepInfra Qwen,manual_review,True,310.11199997738004,,335,3,5.5875e-05
+2,BENCH-007,approve,Covered side-impact collision with complete documentation.,DeepInfra Qwen,approve,True,313.043900008779,,336,2,5.415e-05
+2,BENCH-007,approve,Covered side-impact collision with complete documentation.,Drex,approve,True,280.898500001058,173.7,352,115,1.0559999999999999e-05
+2,BENCH-022,manual_review,Photos are missing and claim contains conflicting information.,DeepInfra Qwen,manual_review,True,857.2169999824837,,335,3,5.5875e-05
+2,BENCH-022,manual_review,Photos are missing and claim contains conflicting information.,Drex,manual_review,True,196.73989998409525,122.0,351,121,1.053e-05
+2,BENCH-024,manual_review,Conflicting information requires human verification.,DeepInfra Qwen,manual_review,True,1382.579400029499,,333,3,5.5575e-05
+2,BENCH-024,manual_review,Conflicting information requires human verification.,Drex,manual_review,True,225.17220000736415,148.2,349,118,1.047e-05
+2,BENCH-006,approve,High repair cost but otherwise clearly covered.,DeepInfra Qwen,approve,True,1414.2336000222713,,338,2,5.4449999999999995e-05
+2,BENCH-006,approve,High repair cost but otherwise clearly covered.,Drex,approve,True,291.075799963437,201.9,354,114,1.062e-05
+2,BENCH-012,deny,Incident occurred before policy began.,DeepInfra Qwen,deny,True,228.24650001712143,,334,2,5.3849999999999994e-05
+2,BENCH-012,deny,Incident occurred before policy began.,Drex,deny,True,252.38550000358373,166.1,350,119,1.05e-05
+2,BENCH-021,manual_review,Cause of damage is unknown and supporting evidence is missing.,Drex,manual_review,True,225.20620003342628,152.5,352,120,1.0559999999999999e-05
+2,BENCH-021,manual_review,Cause of damage is unknown and supporting evidence is missing.,DeepInfra Qwen,manual_review,True,254.40010003512725,,336,3,5.6025e-05
+2,BENCH-015,deny,Intentional damage is excluded.,DeepInfra Qwen,deny,True,214.42639996530488,,340,2,5.475e-05
+2,BENCH-015,deny,Intentional damage is excluded.,Drex,deny,True,224.81629997491837,121.5,356,118,1.068e-05
+2,BENCH-009,approve,Active policy and clear accidental collision.,Drex,approve,True,270.9063999936916,186.0,352,116,1.0559999999999999e-05
+2,BENCH-009,approve,Active policy and clear accidental collision.,DeepInfra Qwen,approve,True,319.11879999097437,,336,2,5.415e-05
+2,BENCH-013,deny,Mechanical failure is excluded from collision coverage.,Drex,deny,True,319.3117000046186,173.7,351,119,1.053e-05
+2,BENCH-013,deny,Mechanical failure is excluded from collision coverage.,DeepInfra Qwen,deny,True,353.5375999636017,,335,2,5.4e-05
+2,BENCH-004,approve,Incident occurred on final active policy day.,Drex,approve,True,251.75210001179948,174.5,350,114,1.05e-05
+2,BENCH-004,approve,Incident occurred on final active policy day.,DeepInfra Qwen,approve,True,207.88890001131222,,334,2,5.3849999999999994e-05
+2,BENCH-028,manual_review,Only a repair estimate exists and incident evidence is incomplete.,Drex,manual_review,True,211.08290000120178,117.4,351,116,1.053e-05
+2,BENCH-028,manual_review,Only a repair estimate exists and incident evidence is incomplete.,DeepInfra Qwen,manual_review,True,250.68449997343123,,335,3,5.5875e-05
+3,BENCH-020,deny,Intentional vehicle damage is explicitly excluded.,DeepInfra Qwen,deny,True,222.25779999280348,,341,2,5.489999999999999e-05
+3,BENCH-020,deny,Intentional vehicle damage is explicitly excluded.,Drex,deny,True,210.69300000090152,136.5,357,118,1.0709999999999999e-05
+3,BENCH-019,deny,Damage described as routine deterioration rather than collision.,DeepInfra Qwen,deny,True,233.61659998772666,,333,2,5.3700000000000004e-05
+3,BENCH-019,deny,Damage described as routine deterioration rather than collision.,Drex,deny,True,258.0191000015475,119.0,349,116,1.047e-05
+3,BENCH-017,deny,Claim clearly identifies uncovered engine breakdown.,Drex,deny,True,202.4344999808818,122.0,354,119,1.062e-05
+3,BENCH-017,deny,Claim clearly identifies uncovered engine breakdown.,DeepInfra Qwen,deny,True,233.7211999692954,,338,2,5.4449999999999995e-05
+3,BENCH-015,deny,Intentional damage is excluded.,Drex,deny,True,182.9944000346586,106.7,356,118,1.068e-05
+3,BENCH-015,deny,Intentional damage is excluded.,DeepInfra Qwen,deny,True,2572.6422000443563,,340,2,5.475e-05
+3,BENCH-023,manual_review,Claim has incomplete documentation and uncertain cause.,DeepInfra Qwen,manual_review,True,245.949300006032,,336,3,5.6025e-05
+3,BENCH-023,manual_review,Claim has incomplete documentation and uncertain cause.,Drex,manual_review,True,225.6303000031039,121.5,352,120,1.0559999999999999e-05
+3,BENCH-016,deny,Claim occurred months after policy expiration.,DeepInfra Qwen,deny,True,195.6369000254199,,333,2,5.3700000000000004e-05
+3,BENCH-016,deny,Claim occurred months after policy expiration.,Drex,deny,True,206.1414000345394,128.3,349,118,1.047e-05
+3,BENCH-007,approve,Covered side-impact collision with complete documentation.,Drex,approve,True,250.378200027626,167.1,352,115,1.0559999999999999e-05
+3,BENCH-007,approve,Covered side-impact collision with complete documentation.,DeepInfra Qwen,approve,True,555.6263000471517,,336,2,5.415e-05
+3,BENCH-002,approve,Active policy and well-documented rear-end collision.,Drex,approve,True,278.1585999764502,173.4,351,117,1.053e-05
+3,BENCH-002,approve,Active policy and well-documented rear-end collision.,DeepInfra Qwen,approve,True,219.78189999936149,,335,2,5.4e-05
+3,BENCH-003,approve,Incident occurred one day after policy started with complete evidence.,DeepInfra Qwen,approve,True,334.23159999074414,,332,2,5.355e-05
+3,BENCH-003,approve,Incident occurred one day after policy started with complete evidence.,Drex,approve,True,213.83800002513453,123.8,348,117,1.044e-05
+3,BENCH-026,manual_review,Evidence conflicts even though the policy is active.,DeepInfra Qwen,manual_review,True,244.78269997052848,,335,3,5.5875e-05
+3,BENCH-026,manual_review,Evidence conflicts even though the policy is active.,Drex,manual_review,True,199.30550002027303,123.7,351,120,1.053e-05
+3,BENCH-005,approve,Low-cost covered collision with supporting evidence.,DeepInfra Qwen,approve,True,235.19089998444542,,335,2,5.4e-05
+3,BENCH-005,approve,Low-cost covered collision with supporting evidence.,Drex,approve,True,212.4339999863878,118.9,351,117,1.053e-05
+3,BENCH-013,deny,Mechanical failure is excluded from collision coverage.,DeepInfra Qwen,deny,True,222.84290002426133,,335,2,5.4e-05
+3,BENCH-013,deny,Mechanical failure is excluded from collision coverage.,Drex,deny,True,216.9927000068128,114.2,351,119,1.053e-05
+3,BENCH-012,deny,Incident occurred before policy began.,DeepInfra Qwen,deny,True,253.764399967622,,334,2,5.3849999999999994e-05
+3,BENCH-012,deny,Incident occurred before policy began.,Drex,deny,True,244.28270000498742,125.9,350,119,1.05e-05
+3,BENCH-029,manual_review,Reported collision details materially conflict.,Drex,manual_review,True,206.50410000234842,105.0,353,121,1.059e-05
+3,BENCH-029,manual_review,Reported collision details materially conflict.,DeepInfra Qwen,manual_review,True,341.34790004463866,,337,3,5.6175000000000003e-05
+3,BENCH-008,approve,Covered collision with photos and police documentation.,DeepInfra Qwen,approve,True,214.67700001085177,,335,2,5.4e-05
+3,BENCH-008,approve,Covered collision with photos and police documentation.,Drex,approve,True,213.80069997394457,116.1,351,116,1.053e-05
+3,BENCH-006,approve,High repair cost but otherwise clearly covered.,DeepInfra Qwen,approve,True,240.0758999865502,,338,2,5.4449999999999995e-05
+3,BENCH-006,approve,High repair cost but otherwise clearly covered.,Drex,approve,True,224.7065000119619,128.4,354,114,1.062e-05
+3,BENCH-014,deny,Normal wear and tear is excluded.,DeepInfra Qwen,deny,True,207.44399999966845,,336,2,5.415e-05
+3,BENCH-014,deny,Normal wear and tear is excluded.,Drex,deny,True,211.55770000768825,122.5,352,118,1.0559999999999999e-05
+3,BENCH-010,approve,Complete evidence and no inconsistencies.,Drex,approve,True,219.0173999988474,121.9,350,116,1.05e-05
+3,BENCH-010,approve,Complete evidence and no inconsistencies.,DeepInfra Qwen,approve,True,254.1651999927126,,334,2,5.3849999999999994e-05
+3,BENCH-025,manual_review,No police report or photos are available.,DeepInfra Qwen,manual_review,True,252.82699998933822,,333,3,5.5575e-05
+3,BENCH-025,manual_review,No police report or photos are available.,Drex,manual_review,True,215.5285999760963,119.8,349,116,1.047e-05
+3,BENCH-011,deny,Incident occurred after policy expiration.,Drex,deny,True,221.19940002448857,130.7,350,120,1.05e-05
+3,BENCH-011,deny,Incident occurred after policy expiration.,DeepInfra Qwen,deny,True,189.26640000427142,,334,2,5.3849999999999994e-05
+3,BENCH-021,manual_review,Cause of damage is unknown and supporting evidence is missing.,Drex,manual_review,True,247.4132999777794,144.4,352,120,1.0559999999999999e-05
+3,BENCH-021,manual_review,Cause of damage is unknown and supporting evidence is missing.,DeepInfra Qwen,manual_review,True,235.01119995489717,,336,3,5.6025e-05
+3,BENCH-009,approve,Active policy and clear accidental collision.,DeepInfra Qwen,approve,True,214.5056000445038,,336,2,5.415e-05
+3,BENCH-009,approve,Active policy and clear accidental collision.,Drex,approve,True,252.73389997892082,120.6,352,116,1.0559999999999999e-05
+3,BENCH-030,manual_review,Claim is potentially covered but evidence is insufficient.,DeepInfra Qwen,manual_review,True,222.1064000041224,,335,3,5.5875e-05
+3,BENCH-030,manual_review,Claim is potentially covered but evidence is insufficient.,Drex,manual_review,True,249.62380004581064,161.6,351,119,1.053e-05
+3,BENCH-027,manual_review,Damage cause cannot be established from submitted evidence.,Drex,manual_review,True,214.29060003720224,121.1,351,117,1.053e-05
+3,BENCH-027,manual_review,Damage cause cannot be established from submitted evidence.,DeepInfra Qwen,manual_review,True,289.40779995173216,,335,3,5.5875e-05
+3,BENCH-004,approve,Incident occurred on final active policy day.,Drex,approve,True,197.02900003176183,126.0,350,114,1.05e-05
+3,BENCH-004,approve,Incident occurred on final active policy day.,DeepInfra Qwen,manual_review,False,261.76299998769537,,334,3,5.5725e-05
+3,BENCH-024,manual_review,Conflicting information requires human verification.,Drex,manual_review,True,243.05679998360574,119.4,349,118,1.047e-05
+3,BENCH-024,manual_review,Conflicting information requires human verification.,DeepInfra Qwen,manual_review,True,188.55219997931272,,333,3,5.5575e-05
+3,BENCH-022,manual_review,Photos are missing and claim contains conflicting information.,Drex,manual_review,True,227.16060001403093,134.9,351,121,1.053e-05
+3,BENCH-022,manual_review,Photos are missing and claim contains conflicting information.,DeepInfra Qwen,manual_review,True,210.1752000162378,,335,3,5.5875e-05
+3,BENCH-001,approve,"Active policy, covered collision, complete evidence.",Drex,approve,True,256.43219996709377,122.9,350,117,1.05e-05
+3,BENCH-001,approve,"Active policy, covered collision, complete evidence.",DeepInfra Qwen,approve,True,359.9883999559097,,334,2,5.3849999999999994e-05
+3,BENCH-028,manual_review,Only a repair estimate exists and incident evidence is incomplete.,DeepInfra Qwen,manual_review,True,276.9770000013523,,335,3,5.5875e-05
+3,BENCH-028,manual_review,Only a repair estimate exists and incident evidence is incomplete.,Drex,manual_review,True,439.60570002673194,325.5,351,116,1.053e-05
+3,BENCH-018,deny,Policy expired the day before the incident.,DeepInfra Qwen,deny,True,230.4670999874361,,334,2,5.3849999999999994e-05
+3,BENCH-018,deny,Policy expired the day before the incident.,Drex,deny,True,202.26559997536242,127.0,350,118,1.05e-05
