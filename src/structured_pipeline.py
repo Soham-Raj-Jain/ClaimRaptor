@@ -50,7 +50,7 @@ with NaceClient(api_key=api_key) as client:
     print("1. Uploading claim...")
 
     uploaded_file = client.documents.upload(
-    "data/denied_claim.pdf",
+    "data/review_claim.pdf",
     on_conflict="new_version"
     )
 
