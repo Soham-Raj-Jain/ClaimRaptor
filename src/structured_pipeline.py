@@ -50,7 +50,8 @@ with NaceClient(api_key=api_key) as client:
     print("1. Uploading claim...")
 
     uploaded_file = client.documents.upload(
-        "data/test_claim.pdf"
+    "data/denied_claim.pdf",
+    on_conflict="new_version"
     )
 
     print("2. NDI parsing...")
