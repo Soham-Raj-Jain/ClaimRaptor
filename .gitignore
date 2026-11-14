@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 
 data/real_world/
+data/real_world_clean/progressive_fire_claim_packet.pdf
